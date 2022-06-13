@@ -1,0 +1,55 @@
+#principal , .active{
+    background-color: rgb(255, 255, 255);
+    
+}
+
+#principal:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+
+
+#principal  .card-text {
+
+   font-size: 14px;
+}
+
+body{
+    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif;
+}
+
+#principal  .precio {
+
+font-weight: bold; }
+
+
+.navbar{
+background: #000835;    
+height: 100px;
+}
+
+.nav-link, .navbar-brand{
+font-size: 15px;
+color: #f4f4f4;
+}
+
+.nav-link:hover {
+color: rgb(94, 97, 97);
+}
+.navbar-brand:hover{
+    color: #f4f4f4;
+}
+
+
+
+#carrito img {
+    margin-top: 10px;
+    margin-left: 4px;
+    width: 80px;
+}
+
+#carrito ,.nombre{
+    text-align: center;
+}
