@@ -204,7 +204,7 @@ let carritoHTML = document.getElementById('carrito')
 
 html = ""
 
-carrito.forEach((producto , id ) => {
+carrito.forEach((producto) => {
 
 html += `
 <tr>
@@ -221,7 +221,7 @@ html += `
    Cantidad: ${producto.cantidad}
 </tr>
 </br>
-<button type="button" class="btn btn-danger">Eliminar carrito</button>
+<button type="button" onclick="borrarCarrito()" class="btn btn-danger">Eliminar carrito</button>
 </br>
 `
 
@@ -232,9 +232,11 @@ carritoHTML.innerHTML = html
 
 }
 
-const eliminarProducto = (id)=> {
+function borrarCarrito(id){
 
-carrito[id].cantidad--
-console.log(carrito[id].cantidad)
+   const item = carrito.find((producto) => producto.id === id)
+   const index = carrito.indexOf(item)
+   carrito.splice(index , 1)
+   mostrarCarrito()
+   }
 
-}
