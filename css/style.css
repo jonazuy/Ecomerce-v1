@@ -61,7 +61,15 @@ color: rgb(94, 97, 97);
     color:white;
     font-weight:bold; 
     font-size:0.55em;
+}
 
-
+#total{
+font-weight: bold;
+margin: 10px;
+align-items: center;
+text-align: center;
+border: 1px solid;
+border-radius: 100px;
+border-color: red;
 
 }

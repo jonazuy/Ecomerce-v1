@@ -223,8 +223,11 @@ html += `
 </br>
 <button type="button" onclick="borrarCarrito()" class="btn btn-danger">Eliminar carrito</button>
 </br>
+
+
 `
 mostrarcantidad()
+calcularTotal()
 
 })
 
@@ -240,8 +243,23 @@ function borrarCarrito(id){
    carrito.splice(index , 1)
    mostrarCarrito()
    mostrarcantidad()
+   calcularTotal()
    }
 
 function mostrarcantidad(){
    contadorCarrito.innerText = carrito.length
+   
 }
+
+
+let mostrarTotal = document.getElementById("total")
+
+function calcularTotal(){
+let total = 0
+carrito.forEach((producto)=>{
+   total+=producto.precio
+})
+mostrarTotal.innerHTML = `Total : U$$${total}`
+
+}
+
