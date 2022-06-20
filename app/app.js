@@ -224,6 +224,7 @@ html += `
 <button type="button" onclick="borrarCarrito()" class="btn btn-danger">Eliminar carrito</button>
 </br>
 `
+mostrarcantidad()
 
 })
 
@@ -238,5 +239,9 @@ function borrarCarrito(id){
    const index = carrito.indexOf(item)
    carrito.splice(index , 1)
    mostrarCarrito()
+   mostrarcantidad()
    }
 
+function mostrarcantidad(){
+   contadorCarrito.innerText = carrito.length
+}
