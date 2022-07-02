@@ -10,10 +10,16 @@
 
 
 
-#principal  .card-text {
+#principal  .card-title {
 
    font-size: 14px;
 }
+
+#btnDispo{
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
 
 body{
     background-color: #f4f4f4;
@@ -22,7 +28,8 @@ body{
 
 #principal  .precio {
 
-font-weight: bold; }
+font-weight: bold;
+font-size: 20px; }
 
 
 .navbar{
@@ -71,5 +78,18 @@ text-align: center;
 border: 1px solid;
 border-radius: 100px;
 border-color: red;
+
+}
+
+
+
+#cuerpo{
+
+  width: 100px;
+}
+
+.card  img {
+
+    width: 100%;
 
 }

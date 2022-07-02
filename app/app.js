@@ -5,7 +5,8 @@ const productos = [
    imagen : 'img/productos/prod2.jpg',
    descripcion : 'Apple MacBook Air MD711LL/A 11.6-inch Laptop',
    precio : 500,
-   cantidad : 1 
+   cantidad : 1 ,
+   stock: 3
 
 },
 {   
@@ -14,16 +15,20 @@ const productos = [
     imagen : 'img/productos/prod3.jpg',
     descripcion : 'BenQ Zowie XL2540K 24.5 inch 240Hz Gaming Monitor',
     precio : 500,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 5
+
 
  },
  {
     id: 3, 
     nombre :  'Placa Gamer Gygabyte', 
     imagen : 'img/productos/prod4.jpg',
-    descripcion : 'Una de las mejores Mothers del momento',
+    descripcion : 'Wi-Fi GIGABYTE B450 AORUS PRO (Protección térmica AMD Ryzen)',
     precio : 150,
-    cantidad : 1 
+    cantidad : 1,
+    stock: 2
+
 
  },
  {
@@ -32,7 +37,8 @@ const productos = [
     imagen : 'img/productos/prod5.jpg',
     descripcion : 'XFX Speedster SWFT 210 Radeon RX 6600 CORE Gaming',
     precio :  350,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 9
 
  },
  {
@@ -41,16 +47,20 @@ const productos = [
     imagen : 'img/productos/prod6.jpg',
     descripcion : 'Hisense ULED Premium 65U7G QLED Series 65-inch Android 4K',
     precio : 800,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 7
+
 
  },
  {
     id: 6, 
     nombre :  'Intel i5', 
     imagen : 'img/productos/prod7.jpg',
-    descripcion : 'Intel core i5 10400f',
+    descripcion : 'Procesador Intel Core i5-10400 para equipos de sobremesa 6 núcleos hasta 4,3 GHz ',
     precio : 200,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 4
+
 
  },
  {
@@ -59,7 +69,9 @@ const productos = [
     imagen : 'img/productos/prod8.jpg',
     descripcion : 'Apple iPad Pro Tablet (128GB, Wi-Fi, 9.7in) Gray (Renewed)',
     precio : 900,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 3
+
 
  },
  {
@@ -68,7 +80,9 @@ const productos = [
     imagen : 'img/productos/prod9.jpg',
     descripcion : 'Xbox Core Wireless Controller Pulse Red',
     precio : 100,
-    cantidad : 1 
+    cantidad : 1,
+    stock: 7
+
 
  },
  {
@@ -77,7 +91,9 @@ const productos = [
     imagen : 'img/productos/prod10.jpg',
     descripcion : 'Apple iPhone 11, 64GB, Black - Unlocked (Renewed)',
     precio : 1200,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 6
+
 
  },
  {
@@ -86,7 +102,9 @@ const productos = [
     imagen : 'img/productos/prod11.jpg',
     descripcion : 'Playstation DualSense Wireless Controller',
     precio : 160,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 4
+
 
  },
  {
@@ -95,7 +113,9 @@ const productos = [
     imagen : 'img/productos/prod12.jpg',
     descripcion : '2020 Apple MacBook Air Laptop: Apple M1 Chip, 13” Retina',
     precio : 1200,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 3
+
 
  },
  {
@@ -104,7 +124,9 @@ const productos = [
     imagen : 'img/productos/prod13.jpg',
     descripcion : 'Lenovo Legion 2022 16gb Ram ddr4 rtx3050 2TB SSD',
     precio : 900,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 8
+
 
  },
  {
@@ -113,7 +135,9 @@ const productos = [
     imagen : 'img/productos/prod14.jpg',
     descripcion : 'Apple Airpods Wireless 15h duracion ',
     precio : 180,
-    cantidad : 1 
+    cantidad : 1,
+    stock: 5
+
 
  },
  {
@@ -122,7 +146,9 @@ const productos = [
     imagen : 'img/productos/prod15.jpg',
     descripcion : 'ZOTAC Gaming GeForce RTX 3060 Twin Edge OC 12GB GDDR6',
     precio : 1000,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 8
+   
 
  },
  {
@@ -131,7 +157,9 @@ const productos = [
     imagen : 'img/productos/prod16.jpg',
     descripcion : 'AMD Ryzen™ 5 5600 de 6 núcleos y 12 hilos con enfriador Wraith Stealthe',
     precio : 300,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 5
+
 
  },
  {
@@ -140,10 +168,29 @@ const productos = [
     imagen : 'img/productos/prod17.jpg',
     descripcion : 'Consola Xbox one S 4K edicion 2022',
     precio : 350,
-    cantidad : 1 
+    cantidad : 1 ,
+    stock: 5
 
  },
+ {
+   id: 17, 
+   nombre :  'EVGA GeForce RTX 3060 XC Gaming, 12G-P5-3657-KR, 12GB', 
+   imagen : 'img/productos/prod18.jpg',
+   descripcion : 'EVGA GeForce RTX 3060 XC Gaming, 12G-P5-3657-KR, 12GB',
+   precio : 700,
+   cantidad : 1 ,
+   stock: 8
 
+},{
+   id: 18, 
+   nombre :  'EVGA GeForce RTX 3060 XC Gaming, 12G-P5-3657-KR, 12GB', 
+   imagen : 'img/productos/prod19.jpg',
+   descripcion : 'Philips 346E2CUAE 34" Curved Frameless, UltraWide QHD',
+   precio : 600,
+   cantidad : 1 ,
+   stock: 8
+
+},
 ]
 
 
@@ -159,13 +206,18 @@ productos.forEach((elements) =>{
    
 let productosHTML =
 
-`<div class="container card  mt-4" style="width: 12rem;" id= principal>
+`<div class="container card  mt-4" style="width:12rem " id= principal>
 <img src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
 <div class="card-body">
-  <h5 class="card-title">${elements.nombre}</h5>
-  <p class=" card-text ">${elements.descripcion}</p>
-  <p class="precio"> U$D ${elements.precio}  </p>
-  <a href="#" class=" btn btn-dark" onClick="agregarAlCarrito(${elements.id})">Agregar</a>
+<p class="precio"> U$D ${elements.precio}  </p>
+  <h5 class="card-title">${elements.descripcion}</h5>
+  <button type="button" id="btnDispo" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
+
+  <div class="container" id="cuerpoCard">
+  
+  <button type="button" id="cuerpo" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
+
+  </div>
 </div>
 </div>`
 
@@ -257,7 +309,7 @@ let mostrarTotal = document.getElementById("total")
 function calcularTotal(){
 let total = 0
 carrito.forEach((producto)=>{
-   total+=producto.precio
+   total+=producto.precio * producto.cantidad
 })
 mostrarTotal.innerHTML = `Total : U$$${total}`
 
