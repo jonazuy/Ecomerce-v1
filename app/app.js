@@ -214,7 +214,7 @@ let productosHTML =
 <p class="precio"> U$D ${elements.precio}  </p>
   <h5 class="card-title">${elements.descripcion}</h5>
   
-  <button type="button" id="btnDispo" class="btn btn-dark"></button>
+  <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
 
   <div class="container" id="cuerpoCard">
   
@@ -376,11 +376,12 @@ function mensajeEliminado(){
 
 
 /* funcion stock */
-const disponible = document.querySelector("#btnDispo")
 
 function stock (){
 
    carrito.forEach((elementos)=>{
+      const disponible = document.querySelector(`#btnDispo-${elementos.id}`)
+
 
       if(elementos.stock){
 
