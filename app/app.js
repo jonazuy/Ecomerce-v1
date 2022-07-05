@@ -6,7 +6,7 @@ const productos = [
    descripcion : 'Apple MacBook Air MD711LL/A 11.6-inch Laptop',
    precio : 500,
    cantidad : 1 ,
-   stock: 3
+   stock: 2
 
 },
 {   
@@ -199,19 +199,22 @@ const carrito = [];
 let total = 0 
 
 function imprimir(){
-
+   
 let tienda = document.getElementById('tienda')
 
 productos.forEach((elements) =>{
    
 let productosHTML =
 
-`<div class="container card  mt-4" style="width:12rem " id= principal>
+`
+
+<div class="container card  mt-4" style="width:12rem " id= principal>
 <img src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
 <div class="card-body">
 <p class="precio"> U$D ${elements.precio}  </p>
   <h5 class="card-title">${elements.descripcion}</h5>
-  <button type="button" id="btnDispo" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
+  
+  <button type="button" id="btnDispo" class="btn btn-dark"></button>
 
   <div class="container" id="cuerpoCard">
   
@@ -226,26 +229,51 @@ tienda.innerHTML += productosHTML
 })
 
 }
-
 imprimir()
 
 
 function agregarAlCarrito(id){
-
    let producto = productos.find( producto => producto.id == id)
    let productosCarrito = carrito.find( producto => producto.id == id)
 
 
    if(productosCarrito){
-      
+      Toastify({
+         text: `Se agrego ${producto.nombre} al carrito.`,
+         duration: 3000,
+         newWindow: true,
+         close: true,
+         gravity: "bottom", // `top` or `bottom`
+         position: "left", // `left`, `center` or `right`
+         stopOnFocus: true, // Prevents dismissing of toast on hover
+         style: {
+           background: "linear-gradient(to right, #002BFF, #000D4F)",
+         },
+       }).showToast();
       productosCarrito.cantidad++
-
+      
+      
    }else{
-
+     
+      
       producto.cantidad = 1 
       carrito.push(producto)
+      Toastify({
+         text: `Se agrego ${producto.nombre} al carrito.`,
+         duration: 3000,
+         newWindow: true,
+         close: true,
+         gravity: "bottom", // `top` or `bottom`
+         position: "left", // `left`, `center` or `right`
+         stopOnFocus: true, // Prevents dismissing of toast on hover
+         style: {
+           background: "linear-gradient(to right, #002BFF, #000D4F)",
+         },
+       }).showToast();
    }
          mostrarCarrito()
+         
+         stock ()
 
 }
 
@@ -273,7 +301,8 @@ html += `
    Cantidad: ${producto.cantidad}
 </tr>
 </br>
-<button type="button" onclick="borrarCarrito()" class="btn btn-danger">Eliminar carrito</button>
+
+<button type="button" id="btnBorrar" onclick="mensajeEliminado()" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
 </br>
 
 
@@ -289,13 +318,15 @@ carritoHTML.innerHTML = html
 }
 
 function borrarCarrito(id){
-
+  
    const item = carrito.find((producto) => producto.id === id)
    const index = carrito.indexOf(item)
    carrito.splice(index , 1)
+
    mostrarCarrito()
    mostrarcantidad()
    calcularTotal()
+   mensajeEliminado()
    }
 
 function mostrarcantidad(){
@@ -310,8 +341,53 @@ function calcularTotal(){
 let total = 0
 carrito.forEach((producto)=>{
    total+=producto.precio * producto.cantidad
+   
 })
 mostrarTotal.innerHTML = `Total : U$$${total}`
 
 }
 
+
+
+function mensajeEliminado(){
+   
+  
+    Swal.fire({
+      title: 'Estas seguro de eliminarme?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si , eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+         borrarCarrito()
+         Swal.fire(
+         
+          'Eliminado!',
+          'Puedes volver a agregarme en cualquier momento.',
+          'success'
+          
+        )
+        
+      }
+    })
+}
+
+
+/* funcion stock */
+const disponible = document.querySelector("#btnDispo")
+
+function stock (){
+
+   carrito.forEach((elementos)=>{
+
+      if(elementos.stock){
+
+         elementos.stock--
+         disponible.innerHTML = `solo ${elementos.stock}`
+         console.log(elementos.stock)
+      }
+
+   })
+}
