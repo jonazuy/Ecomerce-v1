@@ -214,11 +214,7 @@ let productosHTML =
 <p class="precio"> U$D ${elements.precio}  </p>
   <h5 class="card-title">${elements.descripcion}</h5>
   
-<<<<<<< HEAD
   <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
-=======
-  <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} Disponible</button>
->>>>>>> 034f576 (cambios 10-7)
 
   <div class="container" id="cuerpoCard">
   
