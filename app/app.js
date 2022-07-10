@@ -385,12 +385,7 @@ function mensajeEliminado(){
 function stock (){
 
    carrito.forEach((elementos)=>{
-<<<<<<< HEAD
-      const disponible = document.querySelector(`#btnDispo-${elementos.id}`)
-
-=======
    const disponible = document.querySelector(`#btnDispo-${elementos.id}`)
->>>>>>> 034f576 (cambios 10-7)
 
       if(elementos.stock){
 
