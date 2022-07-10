@@ -214,11 +214,15 @@ let productosHTML =
 <p class="precio"> U$D ${elements.precio}  </p>
   <h5 class="card-title">${elements.descripcion}</h5>
   
+<<<<<<< HEAD
   <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
+=======
+  <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} Disponible</button>
+>>>>>>> 034f576 (cambios 10-7)
 
   <div class="container" id="cuerpoCard">
   
-  <button type="button" id="cuerpo" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
+  <button type="button" id="cuerpo-${elements.id}" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
 
   </div>
 </div>
@@ -229,6 +233,7 @@ tienda.innerHTML += productosHTML
 })
 
 }
+
 imprimir()
 
 
@@ -274,7 +279,6 @@ function agregarAlCarrito(id){
          mostrarCarrito()
          
          stock ()
-
 }
 
 
@@ -369,7 +373,8 @@ function mensajeEliminado(){
           'success'
           
         )
-        
+       
+
       }
     })
 }
@@ -380,15 +385,52 @@ function mensajeEliminado(){
 function stock (){
 
    carrito.forEach((elementos)=>{
+<<<<<<< HEAD
       const disponible = document.querySelector(`#btnDispo-${elementos.id}`)
 
+=======
+   const disponible = document.querySelector(`#btnDispo-${elementos.id}`)
+>>>>>>> 034f576 (cambios 10-7)
 
       if(elementos.stock){
 
          elementos.stock--
-         disponible.innerHTML = `solo ${elementos.stock}`
+         disponible.innerHTML = `Solo ${elementos.stock} Disponible`
          console.log(elementos.stock)
+         validStock()
       }
-
+     
    })
 }
+
+
+function validStock(){
+
+carrito.forEach((validador)=>{
+   const claseCambio = document.querySelector(`#btnDispo-${validador.id}`)
+   const botonDesabilitar = document.querySelector(`#cuerpo-${validador.id}`)
+if(validador.stock===0){
+   claseCambio.classList.remove("btn-dark")
+   claseCambio.classList.add("btn-danger")
+   botonDesabilitar.disabled = true 
+   claseCambio.innerHTML= `Sin stock`
+   Toastify({
+      text: `Momentaneamente sin stock de  ${validador.nombre} .`,
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "bottom", // `top` or  `bottom`
+      position: "left", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, #A91C1C, #A91C1C)",
+      },
+    }).showToast();
+    
+}   
+
+
+})
+
+}
+
