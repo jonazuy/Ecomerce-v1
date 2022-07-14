@@ -1,4 +1,4 @@
-const productos = [
+/* const productos = [
 {
    id: 1, 
    nombre :  'Macbook air' ,
@@ -191,46 +191,59 @@ const productos = [
    stock: 8
 
 },
-]
+] */
+
+let productos = []
+
+ fetch('/app/productos.json')
+  .then(response => response.json())
+  .then(data => {
+
+    productos = data
+
+   function imprimir(){
+   
+      let tienda = document.getElementById('tienda')
+      
+      productos.forEach((elements) =>{
+         
+      let productosHTML =
+      
+      `
+      
+      <div class="container card  mt-4" style="width:12rem " id= principal>
+      <img src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
+      <div class="card-body">
+      <p class="precio"> U$D ${elements.precio}  </p>
+        <h5 class="card-title">${elements.descripcion}</h5>
+        
+        <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
+      
+        <div class="container" id="cuerpoCard">
+        
+        <button type="button" id="cuerpo-${elements.id}" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
+      
+        </div>
+      </div>
+      </div>`
+      
+      tienda.innerHTML += productosHTML
+      
+      })
+      
+      }
+      
+      imprimir()
+
+  });
+
 
 
 const carrito = [];
 
 let total = 0 
 
-function imprimir(){
-   
-let tienda = document.getElementById('tienda')
 
-productos.forEach((elements) =>{
-   
-let productosHTML =
-
-`
-
-<div class="container card  mt-4" style="width:12rem " id= principal>
-<img src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
-<div class="card-body">
-<p class="precio"> U$D ${elements.precio}  </p>
-  <h5 class="card-title">${elements.descripcion}</h5>
-  
-  <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
-
-  <div class="container" id="cuerpoCard">
-  
-  <button type="button" id="cuerpo-${elements.id}" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
-
-  </div>
-</div>
-</div>`
-
-tienda.innerHTML += productosHTML
-
-})
-
-}
-
-imprimir()
 
 
 function agregarAlCarrito(id){
@@ -322,7 +335,8 @@ function borrarCarrito(id){
    const item = carrito.find((producto) => producto.id === id)
    const index = carrito.indexOf(item)
    carrito.splice(index , 1)
-
+   
+   
    mostrarCarrito()
    mostrarcantidad()
    calcularTotal()
@@ -370,7 +384,7 @@ function mensajeEliminado(){
           
         )
        
-
+        
       }
     })
 }
