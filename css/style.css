@@ -94,3 +94,19 @@ border-color: red;
 
 }
 
+.navbar{
+    margin-top: 0;
+    padding-top: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#carouselExampleIndicators{
+    margin-top: 100px;
+}
+
+.floatingInput{
+    width: 200px;
+}

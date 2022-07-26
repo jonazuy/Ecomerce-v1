@@ -19,9 +19,8 @@ let productos = []
       <div class="container card  mt-4" style="width:12rem " id= principal>
       <img src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
       <div class="card-body">
-      <p class="precio"> U$D ${elements.precio}  </p>
         <h5 class="card-title">${elements.descripcion}</h5>
-        
+        <p class="precio"> U$$ ${elements.precio}  </p>
         <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
       
         <div class="container" id="cuerpoCard">
@@ -105,24 +104,20 @@ html = ""
 carrito.forEach((producto) => {
 
 html += `
-<div id="carritoDiv">
-<tr>
-   <img  src="${producto.imagen}">
-</tr></br>
-<tr class="nombre"> 
-     ${producto.nombre}
-</tr></br>
-<tr>
-   U$$ ${producto.precio}
-</tr>
-</br>
-<tr>
-   Cantidad: ${producto.cantidad}
-</tr>
-</br>
-
-<button type="button" id="btnBorrar" onclick="mensajeEliminado()" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-</br>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${producto.imagen}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">U$$ ${producto.precio}</p>
+        <p class="card-text${producto.cantidad}</p>
+        <button type="button" id="btnBorrar" onclick="mensajeEliminado()" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+      </div>
+    </div>
+  </div>
 </div>
 
 `
@@ -238,9 +233,27 @@ if(validador.stock===0){
     }).showToast();
     
 }   
-
-
 })
-
 }
 
+
+let btnIngreso = document.querySelector("#bntIngreso").addEventListener('click' ,ingreso)
+
+function ingreso(e){
+e.preventDefault()
+let mensaje = document.querySelector("#userReg")
+let usuario = document.querySelector('#usuario').value
+let pass = document.querySelector("#password").value
+
+
+
+if(usuario == ""){
+   alert("Debes completar Usuario")
+}else if (pass === ""){
+   alert("Debes completar Password")
+}
+else{
+    mensaje.innerHTML = `Bienvenido ${usuario}`
+    e.reset()
+}
+}
