@@ -23,11 +23,11 @@ let productos = []
            <span id="prod">U$$ ${elements.precio}</span>|<span id="off"> ${elements.descuento}% OFF</span>
             <span class="precio"> U$$ ${elements.precio-elements.precio/100*25}<img id="imgexp" src="/img/express_item.webp"></span>
             <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
-            <button type="button" id="envios-${elements.id}" class="btn ">${elements.envio}</button>
+            <p type="button" id="envios-${elements.id}" class=""></p>
         <div class="container" id="cuerpoCard">
         
         <button type="button" id="cuerpo-${elements.id}" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
-      
+      </div>
         </div>
       </div>
       </div>
@@ -42,7 +42,7 @@ let productos = []
       }
       
       imprimir()
-
+      validEnvio()
   });
 
 
@@ -238,7 +238,7 @@ if(validador.stock===0){
         background: "linear-gradient(to right, #A91C1C, #A91C1C)",
       },
     }).showToast();
-    
+   
 }   
 })
 }
@@ -268,16 +268,20 @@ else{
  
 
 
+
  function validEnvio(){
   productos.forEach((envio)=>{
  let envios = document.querySelector(`#envios-${envio.id}`) 
  
- if(envio.envio == 1){
-      envios.classList.add("btn-danger")
+ if(envio.envio === 1){
+      envios.classList.add("envioGratis")
+      envios.innerHTML = `Envio Gratis <i class="fa-solid fa-circle-exclamation"></i>`
+    }else{
+      envios.classList.add("envioPago")
+      envios.innerHTML = `Envio $100`
     }
-
+    
   })
  
-     
+  
 } 
-validEnvio()

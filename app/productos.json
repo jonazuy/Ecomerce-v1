@@ -7,7 +7,7 @@
    "precio" : 500,
    "cantidad" : 1 ,
    "stock": 2,
-   "envio":"Envio $100",
+   "envio":1,
    "descuento":25
 
 },
@@ -19,7 +19,7 @@
     "precio" : 500,
     "cantidad" : 1 ,
     "stock": 5,
-    "envio":"Envio $100",
+    "envio":0,
     "descuento":25
 
 
@@ -32,7 +32,7 @@
     "precio" : 150,
     "cantidad" : 1,
     "stock": 2,
-    "envio":"Envio $100",
+    "envio":0,
     "descuento":25
 
 
@@ -45,7 +45,7 @@
     "precio" :  350,
     "cantidad" : 1 ,
     "stock": 9,
-    "envio":"Envio $100",
+    "envio":1,
     "descuento":25
 
  },
@@ -57,7 +57,7 @@
     "precio" : 800,
     "cantidad" : 1 ,
     "stock": 7,
-    "envio":"Envio Gratis",
+    "envio":0,
     "descuento":25
 
 
@@ -70,7 +70,7 @@
     "precio" : 200,
     "cantidad" : 1 ,
     "stock": 4,
-    "envio":"Envio Gratis",
+    "envio":1,
     "descuento":25
     
 
@@ -84,7 +84,7 @@
     "precio" : 900,
     "cantidad" : 1 ,
     "stock": 3,
-    "envio":"Envio $100",
+    "envio":0,
     "descuento":25
 
 
@@ -97,7 +97,7 @@
     "precio" : 100,
     "cantidad" : 1,
     "stock": 7,
-    "envio":"Envio Gratis",
+    "envio":1,
     "descuento":25
 
 
@@ -110,7 +110,7 @@
     "precio" : 1200,
     "cantidad" : 1 ,
     "stock": 6,
-    "envio":"Envio $100",
+    "envio":0,
     "descuento":25
 
 
@@ -123,7 +123,7 @@
     "precio" : 160,
     "cantidad" : 1 ,
     "stock": 4,
-    "envio":"Envio Gratis",
+    "envio":1,
     "descuento":25
 
 
@@ -136,7 +136,7 @@
     "precio" : 1200,
     "cantidad" : 1 ,
     "stock": 3,
-    "envio":"Envio Gratis",
+    "envio":1,
     "descuento":25
 
 
@@ -149,7 +149,7 @@
     "precio" : 900,
     "cantidad" : 1 ,
     "stock": 8,
-    "envio":"Envio $100",
+    "envio":0,
     "descuento":25
 
 
@@ -162,7 +162,7 @@
     "precio" : 180,
     "cantidad" : 1,
     "stock": 5,
-    "envio":"Envio Gratis",
+    "envio":1,
     "descuento":25
 
 
@@ -175,7 +175,7 @@
     "precio" : 1000,
     "cantidad" : 1 ,
     "stock": 8,
-    "envio":"Envio Gratis",
+    "envio":0,
     "descuento":25
    
 
@@ -188,7 +188,7 @@
     "precio" : 300,
     "cantidad" : 1 ,
     "stock": 5,
-    "envio":"Envio Gratis",
+    "envio":1,
     "descuento":25
 
 
@@ -201,7 +201,7 @@
     "precio" : 350,
     "cantidad" : 1 ,
     "stock": 5,
-    "envio":"Envio Gratis",
+    "envio":0,
     "descuento":25
 
  },
@@ -224,7 +224,7 @@
    "precio" : 600,
    "cantidad" : 1 ,
    "stock": 8,
-   "envio":"Envio Gratis",
+   "envio":0,
    "descuento":25
 
 }

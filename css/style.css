@@ -132,3 +132,36 @@ border-color: red;
     margin: 0;
     margin-right: 2px;
 }
+
+.envioGratis{
+    
+    background-color: #7700ca;
+    color:rgb(255, 255, 255);
+    font-size: 15px;
+    border-radius: 6px;
+    border: none;
+}
+
+.envioPago{
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(96, 175, 72);
+    font-size: 15px;
+    background: none;
+}
+
+.btn, .btn-dark{
+    margin-bottom: 4px;
+    
+}
+
+#productosFondo{
+
+display: flex;
+justify-content: center;
+margin :12px;
+
+
+
+
+}
