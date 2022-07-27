@@ -18,18 +18,22 @@ let productos = []
       
       <div class="container card  mt-4" style="width:12rem " id= principal>
       <img src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${elements.descripcion}</h5>
-        <p class="precio"> U$$ ${elements.precio}  </p>
-        <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
-      
+        <div class="card-body">
+          <h5 class="card-title">${elements.descripcion}</h5>
+           <span id="prod">U$$ ${elements.precio}</span>|<span id="off"> ${elements.descuento}% OFF</span>
+            <span class="precio"> U$$ ${elements.precio-elements.precio/100*25}<img id="imgexp" src="/img/express_item.webp"></span>
+            <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
+            <button type="button" id="envios-${elements.id}" class="btn ">${elements.envio}</button>
         <div class="container" id="cuerpoCard">
         
         <button type="button" id="cuerpo-${elements.id}" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
       
         </div>
       </div>
-      </div>`
+      </div>
+  
+     `
+     
       
       tienda.innerHTML += productosHTML
       
@@ -40,6 +44,9 @@ let productos = []
       imprimir()
 
   });
+
+
+
 
 
 
@@ -112,7 +119,7 @@ html += `
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">${producto.nombre}</h5>
-        <p class="card-text">U$$ ${producto.precio}</p>
+        <p class="card-text">U$$ ${producto.precio-producto.precio/100*25}</p>
         <p class="card-text${producto.cantidad}</p>
         <button type="button" id="btnBorrar" onclick="mensajeEliminado()" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
       </div>
@@ -257,3 +264,20 @@ else{
     e.reset()
 }
 }
+
+ 
+
+
+ function validEnvio(){
+  productos.forEach((envio)=>{
+ let envios = document.querySelector(`#envios-${envio.id}`) 
+ 
+ if(envio.envio == 1){
+      envios.classList.add("btn-danger")
+    }
+
+  })
+ 
+     
+} 
+validEnvio()
