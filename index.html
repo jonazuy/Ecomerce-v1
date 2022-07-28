@@ -21,12 +21,17 @@
     
 
 </head>
+
 <body>
     
+  <div id="banSuperior" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div id="countdown"></div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
 
 <!-- Inicio Nav -->
 
-  
 <nav class="navbar navbar-expand-lg center bg-custom">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,15 +145,19 @@
 
     <div class="row text-center " id="tienda">
     <img src="/img/ban.jpg" alt="bannerprincipal">
-
+    <div class="info">
+      <p>fkjdsl;f</p>
+    </div>
     </div>
 
-    <div id="productosFondo" class="container">
+    <div id="productosFondo" class=" ">
 
-      <span><img  src="/img/uy_cat_fija_homedesk_apple.webp" alt=""> 
-      <img src="/img/uy_cat_fija_homedesk_columbia.webp" alt="">
-      <img src="/img/uy_cat_fija_homedesk_tommy.webp" alt="">    
-    </span> 
+      <span class="objetos">
+         <img class="imgBan" src="/img/uy_cat_fija_homedesk_apple.webp" alt=""> 
+         <img class="imgBan" src="/img/uy_cat_fija_homedesk_columbia.webp" alt="">
+         <img class="imgBan" src="/img/uy_cat_fija_homedesk_tommy.webp" alt="">    
+         
+      </span> 
 
     </div>
 
@@ -162,7 +171,7 @@
 <!-- Canvas Carrito -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de compras</h5>
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Tu Carrito</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div id="carrito" class="offcanvas-body"></div>
@@ -219,7 +228,7 @@
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2022 Copyright:
-    <a class="text-dark" href="#">Ecomerce Jneutron v 1.1</a>
+    <a class="text-dark" href="#">Ecomerce Jneutron v 1.1 by CodemakeUy</a>
   </div>
   <!-- Copyright -->
 </footer>

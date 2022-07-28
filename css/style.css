@@ -32,10 +32,7 @@ font-weight: bold;
 font-size: 18px; }
 
 
-.navbar{
-background: #000835;    
-height: 100px;
-}
+
 
 .nav-link, .navbar-brand{
 font-size: 15px;
@@ -56,9 +53,7 @@ color: rgb(94, 97, 97);
     width: 80px;
 }
 
-#carrito ,.nombre{
-    text-align: center;
-}
+
 
 
 #contadorCarrito{
@@ -95,17 +90,16 @@ border-color: red;
 }
 
 .navbar{
+    background: #000835;    
+    height: 100px;
+    top: 0;
     margin-top: 0;
     padding-top: 0;
-    position: fixed;
-    top: 0;
+    position: sticky;
     width: 100%;
     z-index: 1000;
 }
 
-#carouselExampleIndicators{
-    margin-top: 100px;
-}
 
 .floatingInput{
     width: 200px;
@@ -155,13 +149,36 @@ border-color: red;
     
 }
 
-#productosFondo{
-
+#productosFondo {
 display: flex;
 justify-content: center;
-margin :12px;
-
-
-
-
+margin-top: 10px;
 }
+
+.container .objetos{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+ .imgBan{
+    border-radius: 8px;
+ }
+
+ #banSuperior{
+    margin: 0;
+    text-align: center;
+ }
+
+ #countdown{
+    font-size: 14px;
+    font-weight: bold;
+ }
+
+ #btnBorrar{
+    text-align: right;
+ }
+
+ .info{
+    background-color: rgb(255, 255, 255);
+ }

@@ -17,7 +17,7 @@ let productos = []
       `
       
       <div class="container card  mt-4" style="width:12rem " id= principal>
-      <img src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
+      <img  id="imgP" src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${elements.descripcion}</h5>
            <span id="prod">U$$ ${elements.precio}</span>|<span id="off"> ${elements.descuento}% OFF</span>
@@ -120,7 +120,7 @@ html += `
       <div class="card-body">
         <h5 class="card-title">${producto.nombre}</h5>
         <p class="card-text">U$$ ${producto.precio-producto.precio/100*25}</p>
-        <p class="card-text${producto.cantidad}</p>
+        <p class="card-text">Cantidad :${producto.cantidad}</p>
         <button type="button" id="btnBorrar" onclick="mensajeEliminado()" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>
@@ -285,3 +285,52 @@ else{
  
   
 } 
+
+/* Timer JS */
+
+let end = new Date(Date.UTC(2022,7,15,23,0));;
+
+let _second = 1000;
+let _minute = _second * 60;
+let _hour = _minute * 60;
+let _day = _hour * 24;
+let timer;
+
+function showRemaining() {
+  let now = new Date();
+  let distance = end - now;
+  if (distance < 0) {
+
+    clearInterval(timer);
+    document.querySelector('#countdown').innerHTML = 'Fin de las Ofertas';
+
+    return;
+  }
+  let days = Math.floor(distance / _day);
+  let hours = Math.floor((distance % _day) / _hour);
+  let minutes = Math.floor((distance % _hour) / _minute);
+  let seconds = Math.floor((distance % _minute) / _second);
+
+  if (days == 1) {
+    document.getElementById('countdown').innerHTML = days + ' día, ';
+  } else {
+    document.getElementById('countdown').innerHTML = `Toda la tienda con 25 OFF quedan : ${days} días `;
+  }
+  if (hours == 1) {
+    document.getElementById('countdown').innerHTML += hours + ' hora  ';
+  } else {
+    document.getElementById('countdown').innerHTML += hours + ' horas  ';
+  }
+  if (minutes == 1) {
+    document.getElementById('countdown').innerHTML += minutes + ' minuto  ';
+  } else {
+    document.getElementById('countdown').innerHTML += minutes + ' minutos  ';
+  }
+  if (seconds == 1) {
+    document.getElementById('countdown').innerHTML += seconds + ' segundo ';
+  } else {
+    document.getElementById('countdown').innerHTML += seconds + ' segundos ';
+  }
+}
+
+timer = setInterval(showRemaining, 1000);
