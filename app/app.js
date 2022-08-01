@@ -3,57 +3,63 @@ let productos = []
 
 /* Funcion Renderizado de productos*/
 
+function cart() {
 
-function cart(){
+  fetch('app/productos.json')
+    .then(response => response.json())
+    .then(data => {
 
- fetch('/app/productos.json')
-  .then(response => response.json())
-  .then(data => {
+      productos = data
 
-    productos = data
-
-   {
-   
-      let tienda = document.getElementById('tienda')
-      
-      productos.forEach((elements) =>{
-
-      let productosHTML =
-      
-      `
-      
-      <div class="container card  mt-4" style="width:12rem " id= principal>
-      <img  id="imgP" src="${elements.imagen}" class=" rounded mt-3  card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${elements.descripcion}</h5>
-           <span id="prod">U$$ ${elements.precio}</span>|<span id="off"> ${elements.descuento}% OFF</span>
-            <span class="precio"> U$$ ${elements.precio-elements.precio/100*25}<img id="imgexp" src="/img/express_item.webp"></span>
-            <button type="button" id="btnDispo-${elements.id}" class="btn btn-dark">Solo ${elements.stock} disponibles</button>
-            <p type="button" id="envios-${elements.id}" class=""></p>
-        <div class="container" id="cuerpoCard">
-        
-        <button type="button" id="cuerpo-${elements.id}" class="btn btn-light agregar" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
-      </div>
-        </div>
-      </div>
-      </div>
-  
-     `
-     
-      
-      tienda.innerHTML += productosHTML
-      
-      })
-      }
-      
+      renderProductos()
       validStock()
       validEnvio()
 
     });
 
-  }cart()
+}
 
 /* Fin Funcion renderizado  */
+
+
+
+/* Renderizado de los productos */
+
+function renderProductos() {
+
+  const tienda = document.getElementById('tienda')
+
+  productos.forEach(({imagen, descripcion, precio, descuento, id, stock}) => {
+
+    let productosHTML =
+
+      `
+  
+    <div class="container card  mt-4" style="width:12rem " id= principal>
+    <img  id="imgP" src="${imagen}" class=" rounded mt-3  card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${descripcion}</h5>
+        <span id="prod">U$$ ${precio}</span>|<span id="off"> ${descuento}% OFF</span>
+          <span class="precio"> U$$ ${precio - precio / 100 * 25}<img id="imgexp" src="img/express_item.webp"></span>
+          <button type="button" id="btnDispo-${id}" class="btn btn-dark">Solo ${stock} disponibles</button>
+          <p type="button" id="envios-${id}" class=""></p>
+      <div class="container" id="cuerpoCard">
+      
+      <button type="button" id="cuerpo-${id}" class="btn btn-light agregar" onClick="agregarAlCarrito(${id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
+    </div>
+      </div>
+    </div>
+    </div>
+
+  `
+
+  tienda.innerHTML += productosHTML
+
+ })}
+
+cart()
+
+/* Fin Funcion renderizado */
 
 
 const carrito = [];
