@@ -1,17 +1,23 @@
 let productos = []
 
+
+/* Funcion Renderizado de productos*/
+
+
+function cart(){
+
  fetch('/app/productos.json')
   .then(response => response.json())
   .then(data => {
 
     productos = data
 
-   function imprimir(){
+   {
    
       let tienda = document.getElementById('tienda')
       
       productos.forEach((elements) =>{
-         
+
       let productosHTML =
       
       `
@@ -26,7 +32,7 @@ let productos = []
             <p type="button" id="envios-${elements.id}" class=""></p>
         <div class="container" id="cuerpoCard">
         
-        <button type="button" id="cuerpo-${elements.id}" class="btn btn-light" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
+        <button type="button" id="cuerpo-${elements.id}" class="btn btn-light agregar" onClick="agregarAlCarrito(${elements.id})"><i class="fa-solid fa-cart-arrow-down"></i></button>
       </div>
         </div>
       </div>
@@ -38,16 +44,16 @@ let productos = []
       tienda.innerHTML += productosHTML
       
       })
-      
       }
       
-      imprimir()
+      validStock()
       validEnvio()
-  });
 
+    });
 
+  }cart()
 
-
+/* Fin Funcion renderizado  */
 
 
 const carrito = [];
@@ -55,7 +61,7 @@ const carrito = [];
 let total = 0 
 
 
-
+/* Funcion agregar al carrito  */
 
 function agregarAlCarrito(id){
    let producto = productos.find( producto => producto.id == id)
@@ -101,6 +107,10 @@ function agregarAlCarrito(id){
          stock ()
 }
 
+/* Fin Funcion agregar al carrito  */
+
+
+/* Funcion Render carrito  */
 
 function mostrarCarrito(){
 
@@ -113,14 +123,14 @@ carrito.forEach((producto) => {
 html += `
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
-    <div class="col-md-4">
-      <img src="${producto.imagen}" class="img-fluid rounded-start" alt="...">
+    <div class="col-md-4 contImg">
+      <img id="imgCart" src="${producto.imagen}" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">${producto.nombre}</h5>
+      <div class="card-body cartCard">
+        <h5 class="card-title tittle">${producto.nombre}</h5>
         <p class="card-text">U$$ ${producto.precio-producto.precio/100*25}</p>
-        <p class="card-text">Cantidad :${producto.cantidad}</p>
+        <p class="card-text">x${producto.cantidad}</p>
         <button type="button" id="btnBorrar" onclick="mensajeEliminado()" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>
@@ -131,45 +141,59 @@ html += `
 mostrarcantidad()
 calcularTotal()
 
+
 })
-
-
 carritoHTML.innerHTML = html
-
 }
 
+/* Fin Funcion Render carrito  */
+
+
+/* Funcion borrar del carrito  */
+
 function borrarCarrito(id){
-  
+   
+   
    const item = carrito.find((producto) => producto.id === id)
    const index = carrito.indexOf(item)
    carrito.splice(index , 1)
-   
+  
    
    mostrarCarrito()
    mostrarcantidad()
    calcularTotal()
    mensajeEliminado()
+
    }
+
+/* Fin Funcion borrar del carrito  */
+
+/* Funcion de mostrar cantidad en icono carrito */
 
 function mostrarcantidad(){
    contadorCarrito.innerText = carrito.length
    
 }
 
+/* Fin Funcion de mostrar cantidad en icono carrito */
+
+/* Funcion de mostrar Total en Canvas  carrito */
 
 let mostrarTotal = document.getElementById("total")
 
 function calcularTotal(){
 let total = 0
 carrito.forEach((producto)=>{
-   total+=producto.precio * producto.cantidad
+   total+= producto.precio * producto.cantidad
    
 })
-mostrarTotal.innerHTML = `Total : U$$${total}`
+mostrarTotal.innerHTML = `Total : U$$${total-total/100*25}`
 
 }
 
+/* Fin Funcion de mostrar Total en Canvas  carrito */
 
+/* Funcion muestra mensaje de eliminacion del carrito */
 
 function mensajeEliminado(){
    
@@ -184,6 +208,7 @@ function mensajeEliminado(){
     }).then((result) => {
       if (result.isConfirmed) {
          borrarCarrito()
+         ActStock()
          Swal.fire(
          
           'Eliminado!',
@@ -191,14 +216,16 @@ function mensajeEliminado(){
           'success'
           
         )
-       
+        
+        
         
       }
     })
+    
 }
+/* Fin Funcion muestra mensaje de eliminacion del carrito */
 
-
-/* funcion stock */
+/* Funcion resta stock  */
 
 function stock (){
 
@@ -208,13 +235,20 @@ function stock (){
 
          elementos.stock--
          disponible.innerHTML = `Solo ${elementos.stock} Disponible`
-         console.log(elementos.stock)
-         validStock()
+         
       }
      
    })
+   
+   validStock()
+   
 }
 
+/* Fin Funcion resta de stock  */
+
+
+
+/* Funcion validacion de stock */
 
 function validStock(){
 
@@ -238,11 +272,16 @@ if(validador.stock===0){
         background: "linear-gradient(to right, #A91C1C, #A91C1C)",
       },
     }).showToast();
-   
-}   
+}
 })
 }
 
+/* Fin funcion validador de stock  */
+
+
+
+
+/* Funcion Ingreso usuarios */
 
 let btnIngreso = document.querySelector("#bntIngreso").addEventListener('click' ,ingreso)
 
@@ -261,13 +300,21 @@ if(usuario == ""){
 }
 else{
     mensaje.innerHTML = `Bienvenido ${usuario}`
-    e.reset()
+   
 }
 }
 
- 
+/* Fin funcion ingreso usuarios */
 
 
+
+
+
+
+
+
+
+/* Funcion Validador envios  */
 
  function validEnvio(){
   productos.forEach((envio)=>{
@@ -282,9 +329,42 @@ else{
     }
     
   })
- 
-  
+
 } 
+
+/* Fin Funcion validador de envios */
+
+
+
+
+
+/* Funcion devolver stock una vez eliminado del carrito  */
+
+function ActStock(){
+  
+  cart()
+  productos.forEach((validador)=>{
+    
+    if(validador.stock === 0 ){
+    const claseCambio = document.querySelector(`#btnDispo-${validador.id}`)
+    const botonDesabilitar = document.querySelector(`#cuerpo-${validador.id}`)
+    claseCambio.classList.remove("btn-danger")
+    claseCambio.classList.add("btn-dark")
+    botonDesabilitar.disabled = false 
+    claseCambio.innerHTML= `Solo ${validador.cantidad} Disponibles`
+    }
+   
+      
+ })
+}
+
+/* Fin funcion devolucion Stock  */
+
+
+
+
+
+
 
 /* Timer JS */
 
@@ -334,3 +414,6 @@ function showRemaining() {
 }
 
 timer = setInterval(showRemaining, 1000);
+
+/* Fin timer JS */
+

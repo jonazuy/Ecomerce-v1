@@ -47,10 +47,12 @@ color: rgb(94, 97, 97);
 }
 
 
-#carrito img {
-    margin-top: 10px;
-    margin-left: 4px;
-    width: 80px;
+.contImg {
+
+display: flex;
+flex-direction: column;
+justify-content:center;
+padding: 5px;
 }
 
 
@@ -58,11 +60,11 @@ color: rgb(94, 97, 97);
 
 #contadorCarrito{
 
-    padding:1px 2px 1px 2px;
-    background-color:red; 
-    color:white;
-    font-weight:bold; 
-    font-size:0.55em;
+padding:1px 2px 1px 2px;
+background-color:red; 
+color:white;
+font-weight:bold; 
+font-size:0.55em;
 }
 
 #total{
@@ -180,5 +182,35 @@ margin-top: 10px;
  }
 
  .info{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255); 
+    display: flex;
+    border-radius: 12px;
+    justify-content: center;
+    padding: 15px 0;
+    
+ }
+ .imgInfo ,p{
+   padding-left: 10px;
+   margin: 0;
+   font-size: 15px;
+  
+ }
+ 
+ .imgInfo{
+    border-left : 1px solid  rgb(99, 99, 99);
+   
+ }
+ 
+ .imgBan:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ }
+
+ .cartCard{
+    text-align: center;
+ }
+ .agregar{
+    margin: 10px;
+ }
+ .tittle{
+    font-weight: bold;
  }
