@@ -374,7 +374,7 @@ function ActStock(){
 
 /* Timer JS */
 
-let end = new Date(Date.UTC(2022,8,15,23,0));;
+let end = new Date(Date.UTC(2022,8,28,23,0));;
 
 let _second = 1000;
 let _minute = _second * 60;
